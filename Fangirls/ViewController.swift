@@ -121,7 +121,7 @@ class ViewController: NSViewController {
         DispatchQueue.main.async {
             let animate = Downloader.shared.downloadTasks.count > 0
             let tableHeight = 100 * Downloader.shared.downloadTasks.count
-            let newHeight = CGFloat(100 + tableHeight)
+            let newHeight = CGFloat(125 + tableHeight)
 
             if let window = self.view.window {
                 let thisHeight = newHeight - window.frame.size.height
@@ -191,5 +191,8 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
         return Downloader.shared.downloadTasks.count
     }
 
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 100
+    }
 }
 

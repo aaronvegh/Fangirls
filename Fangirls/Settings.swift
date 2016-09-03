@@ -17,7 +17,7 @@ struct Settings {
             if let path = defaults.url(forKey: "com.innoveghtive.fangirls.downloadURL") {
                 return path
             } else {
-                return URL(string: NSSearchPathForDirectoriesInDomains(.desktopDirectory, .userDomainMask, true)[0])!
+                return URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.downloadsDirectory, .userDomainMask, true)[0])
             }
         }
         set {
