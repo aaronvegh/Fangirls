@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Fangirls by aaronvegh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Fangirls</h1>
+      <h2 class="project-tagline">Quick &#39;n&#39; easy video downloader for the Mac</h2>
+      <a href="https://github.com/aaronvegh/Fangirls" class="btn">View on GitHub</a>
+      <a href="https://github.com/aaronvegh/Fangirls/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/aaronvegh/Fangirls/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="fangirls" class="anchor" href="#fangirls" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fangirls</h3>
+
+<p>Fangirls is a super-simple front-end to the <a href="https://github.com/rg3/youtube-dl"><strong>youtube-dl</strong></a> project. In short, it grabs the source of videos you watch on the web, and downloads them to your computer. Despite the name, <strong>youtube-dl</strong> supports vastly more services than YouTube — you can <a href="http://rg3.github.io/youtube-dl/supportedsites.html">see a full list</a>. It's also a pretty active project; if there's a site that it doesn't work for, the developers are willing to take requests.</p>
+
+<p>One problem with <strong>youtube-dl</strong> is that it's a Python app that you have to use from the command line. I love the command line as much as any card-carrying nerd, but I wanted to build a quick Mac app, and this seemed like a good opportunity. </p>
+
+<p>Here's a picture of Fangirls in action:</p>
+
+<p>[insert image here - coming soon]</p>
+
+<h3>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h3>
+
+<p>It's pretty bare-bones at this point. Paste in the URL of a web page that contains a video, and Fangirls will use an included copy of <strong>youtube-dl</strong> to pull the video data from that page and download what it finds. In bullet form, then:</p>
+
+<ul>
+<li>Download videos from the sites that youtube-dl supports;</li>
+<li>Multiple video-per-page support: it'll show a progress bar for each video it finds;</li>
+<li>Choose your download location</li>
+<li>...what else do you even need?</li>
+</ul>
+
+<h3>
+<a id="future-considerations" class="anchor" href="#future-considerations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Future Considerations</h3>
+
+<p>Yeah, actually there's a <em>ton</em> of features in <strong>youtube-dl</strong> that aren't supported in Fangirls. Here's a list of a few that I'd like to implement:</p>
+
+<ul>
+<li>Show/pick from a list of available formats. While most videos that come down are in Mac-friendly MP4 format, some strange folks upload <em>webm</em>, and that's what you end up with if it's the highest-quality format.</li>
+<li>Provide more of the power of <strong>youtube-dl</strong>. I mean, <a href="https://github.com/rg3/youtube-dl/blob/master/README.md#options">just look at all the options</a>. A lot of it is unnecessary for the vast majority of users, but some configuration could be handy to prevent trips to the command line.</li>
+<li>UI niceties, like storing the videos you've downloaded, showing the original source page, providing Preferences</li>
+<li>A mechanism for updating <strong>youtube-dl</strong> and showing what version it's at. This should really happen in the background.</li>
+</ul>
+
+<h3>
+<a id="why-fangirls" class="anchor" href="#why-fangirls" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why "Fangirls"?</h3>
+
+<p>It's a word my 12-year-old daughter is using a lot these days, both as a noun and (more entertainingly) a verb. It's interchangeably a derogation and word of praise. And it was on my mind when I sat at the New Project dialogue in Xcode the other night.</p>
+
+<h3>
+<a id="who-designed-your-amazing-app-icon" class="anchor" href="#who-designed-your-amazing-app-icon" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Who designed your amazing app icon?</h3>
+
+<p>Har, har. It was me.</p>
+
+<h3>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h3>
+
+<p>I'm releasing Fangirls under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 license</a>. In short, you can do whatever you like with this code as long as you give me credit. Which brings me to...</p>
+
+<h3>
+<a id="contributions" class="anchor" href="#contributions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributions</h3>
+
+<p>I'd be happy to accept your PRs! Make a fork of this project and shoot me a pull request and let's make Fangirls truly fangirl-worthy.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/aaronvegh/Fangirls">Fangirls</a> is maintained by <a href="https://github.com/aaronvegh">aaronvegh</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
