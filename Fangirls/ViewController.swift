@@ -162,8 +162,9 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
                 let config = URLSessionConfiguration.default
                 let session = URLSession(configuration: config)
                 let task = session.downloadTask(with: thumbURL, completionHandler: { (location, response, error) in
+                    guard let location = location else { return }
                     do {
-                        let data = try Data(contentsOf: location!, options: [])
+                        let data = try Data(contentsOf: location, options: [])
                         if let image = NSImage(data: data) {
                             cell.imageView?.image = image
                         }

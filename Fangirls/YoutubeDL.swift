@@ -21,10 +21,10 @@ struct YoutubeDL {
         return Bundle.main.path(forResource: "youtube-dl", ofType: nil)!
     }
 
-    static func getVideoData(url: String, completion: ((ReturnType) -> Void)) {
+    static func getVideoData(url: String, completion: @escaping ((ReturnType) -> Void)) {
         let task = Process()
         task.launchPath = YoutubeDL.scriptPath
-        task.arguments = ["-eg", "--get-thumbnail", "--get-filename", "\(url)"]
+        task.arguments = ["-eg", "--get-thumbnail", "--get-filename", "--no-playlist", "\(url)"]
         task.standardOutput = Pipe()
         task.launch()
         task.terminationHandler = { (process: Process) in
