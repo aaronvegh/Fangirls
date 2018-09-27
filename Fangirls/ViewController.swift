@@ -99,7 +99,7 @@ class ViewController: NSViewController {
         openPanel.canChooseDirectories = true
         openPanel.canChooseFiles = false
         openPanel.beginSheetModal(for: self.view.window!) { (button) in
-            if button == NSFileHandlingPanelOKButton {
+            if button.rawValue == NSFileHandlingPanelOKButton {
                 let directoryURL = openPanel.urls[0]
                 Settings.shared.downloadLocation = directoryURL
                 self.setDownloadLocationField()
@@ -156,8 +156,8 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
         guard let identifier = tableColumn?.identifier else { return nil }
         guard let video = Downloader.shared.downloadTasks[row].video else { return nil }
 
-        if identifier == "imageCell" {
-            if let cell = tableView.make(withIdentifier: identifier, owner: self) as? NSTableCellView {
+        if identifier.rawValue == "imageCell" {
+            if let cell = tableView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView {
                 guard let thumbURL = URL(string: video.thumbnailURL) else { return nil }
                 let config = URLSessionConfiguration.default
                 let session = URLSession(configuration: config)
@@ -166,7 +166,9 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
                     do {
                         let data = try Data(contentsOf: location, options: [])
                         if let image = NSImage(data: data) {
-                            cell.imageView?.image = image
+                            DispatchQueue.main.async {
+                                cell.imageView?.image = image
+                            }
                         }
                     } catch {
                         return
@@ -176,8 +178,8 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
 
                 return cell
             }
-        } else if identifier == "progressCell" {
-            if let cell = tableView.make(withIdentifier: identifier, owner: self) as? ProgressTableCellView {
+        } else if identifier.rawValue == "progressCell" {
+            if let cell = tableView.makeView(withIdentifier: identifier, owner: self) as? ProgressTableCellView {
                 cell.video = video
                 cell.videoTitle.stringValue = video.title
                 return cell

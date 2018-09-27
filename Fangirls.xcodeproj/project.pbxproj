@@ -11,8 +11,6 @@
 		93235FFE1D73641800FD0780 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93235FFD1D73641800FD0780 /* ViewController.swift */; };
 		932360001D73641800FD0780 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93235FFF1D73641800FD0780 /* Assets.xcassets */; };
 		932360031D73641800FD0780 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932360011D73641800FD0780 /* Main.storyboard */; };
-		9323600E1D73641900FD0780 /* FangirlsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323600D1D73641900FD0780 /* FangirlsTests.swift */; };
-		932360191D73641900FD0780 /* FangirlsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932360181D73641900FD0780 /* FangirlsUITests.swift */; };
 		932360271D7364F800FD0780 /* youtube-dl in Resources */ = {isa = PBXBuildFile; fileRef = 932360261D7364F800FD0780 /* youtube-dl */; };
 		932360291D73657100FD0780 /* YoutubeDL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932360281D73657100FD0780 /* YoutubeDL.swift */; };
 		9323602B1D7377C500FD0780 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323602A1D7377C500FD0780 /* Video.swift */; };
@@ -22,23 +20,6 @@
 		93BFE5571D77D15900F2BB6C /* ImageTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BFE5561D77D15900F2BB6C /* ImageTableCellView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		9323600A1D73641900FD0780 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93235FF01D73641800FD0780 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 93235FF71D73641800FD0780;
-			remoteInfo = Fangirls;
-		};
-		932360151D73641900FD0780 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93235FF01D73641800FD0780 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 93235FF71D73641800FD0780;
-			remoteInfo = Fangirls;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		93235FF81D73641800FD0780 /* Fangirls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fangirls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93235FFB1D73641800FD0780 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,10 +27,8 @@
 		93235FFF1D73641800FD0780 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		932360021D73641800FD0780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		932360041D73641800FD0780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		932360091D73641900FD0780 /* FangirlsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FangirlsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9323600D1D73641900FD0780 /* FangirlsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FangirlsTests.swift; sourceTree = "<group>"; };
 		9323600F1D73641900FD0780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		932360141D73641900FD0780 /* FangirlsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FangirlsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		932360181D73641900FD0780 /* FangirlsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FangirlsUITests.swift; sourceTree = "<group>"; };
 		9323601A1D73641900FD0780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		932360261D7364F800FD0780 /* youtube-dl */ = {isa = PBXFileReference; lastKnownFileType = file; path = "youtube-dl"; sourceTree = "<group>"; };
@@ -63,20 +42,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		93235FF51D73641800FD0780 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		932360061D73641900FD0780 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		932360111D73641900FD0780 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -100,8 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				93235FF81D73641800FD0780 /* Fangirls.app */,
-				932360091D73641900FD0780 /* FangirlsTests.xctest */,
-				932360141D73641900FD0780 /* FangirlsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,42 +126,6 @@
 			productReference = 93235FF81D73641800FD0780 /* Fangirls.app */;
 			productType = "com.apple.product-type.application";
 		};
-		932360081D73641900FD0780 /* FangirlsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 932360201D73641900FD0780 /* Build configuration list for PBXNativeTarget "FangirlsTests" */;
-			buildPhases = (
-				932360051D73641900FD0780 /* Sources */,
-				932360061D73641900FD0780 /* Frameworks */,
-				932360071D73641900FD0780 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9323600B1D73641900FD0780 /* PBXTargetDependency */,
-			);
-			name = FangirlsTests;
-			productName = FangirlsTests;
-			productReference = 932360091D73641900FD0780 /* FangirlsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		932360131D73641900FD0780 /* FangirlsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 932360231D73641900FD0780 /* Build configuration list for PBXNativeTarget "FangirlsUITests" */;
-			buildPhases = (
-				932360101D73641900FD0780 /* Sources */,
-				932360111D73641900FD0780 /* Frameworks */,
-				932360121D73641900FD0780 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				932360161D73641900FD0780 /* PBXTargetDependency */,
-			);
-			name = FangirlsUITests;
-			productName = FangirlsUITests;
-			productReference = 932360141D73641900FD0780 /* FangirlsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,28 +133,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Aaron Vegh";
 				TargetAttributes = {
 					93235FF71D73641800FD0780 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 9P5W2L6F6B;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
 							};
 						};
-					};
-					932360081D73641900FD0780 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 93235FF71D73641800FD0780;
-					};
-					932360131D73641900FD0780 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 93235FF71D73641800FD0780;
 					};
 				};
 			};
@@ -245,8 +163,6 @@
 			projectRoot = "";
 			targets = (
 				93235FF71D73641800FD0780 /* Fangirls */,
-				932360081D73641900FD0780 /* FangirlsTests */,
-				932360131D73641900FD0780 /* FangirlsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,20 +175,6 @@
 				932360001D73641800FD0780 /* Assets.xcassets in Resources */,
 				932360271D7364F800FD0780 /* youtube-dl in Resources */,
 				932360031D73641800FD0780 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		932360071D73641900FD0780 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		932360121D73641900FD0780 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,36 +196,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		932360051D73641900FD0780 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9323600E1D73641900FD0780 /* FangirlsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		932360101D73641900FD0780 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				932360191D73641900FD0780 /* FangirlsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9323600B1D73641900FD0780 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 93235FF71D73641800FD0780 /* Fangirls */;
-			targetProxy = 9323600A1D73641900FD0780 /* PBXContainerItemProxy */;
-		};
-		932360161D73641900FD0780 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 93235FF71D73641800FD0780 /* Fangirls */;
-			targetProxy = 932360151D73641900FD0780 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		932360011D73641800FD0780 /* Main.storyboard */ = {
@@ -346,15 +219,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -396,15 +277,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -441,7 +330,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.innoveghtive.Fangirls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -457,65 +346,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.innoveghtive.Fangirls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		932360211D73641900FD0780 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = FangirlsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.innoveghtive.FangirlsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fangirls.app/Contents/MacOS/Fangirls";
-			};
-			name = Debug;
-		};
-		932360221D73641900FD0780 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = FangirlsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.innoveghtive.FangirlsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fangirls.app/Contents/MacOS/Fangirls";
-			};
-			name = Release;
-		};
-		932360241D73641900FD0780 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = FangirlsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.innoveghtive.FangirlsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Fangirls;
-			};
-			name = Debug;
-		};
-		932360251D73641900FD0780 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = FangirlsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.innoveghtive.FangirlsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Fangirls;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -536,24 +367,6 @@
 			buildConfigurations = (
 				9323601E1D73641900FD0780 /* Debug */,
 				9323601F1D73641900FD0780 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		932360201D73641900FD0780 /* Build configuration list for PBXNativeTarget "FangirlsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				932360211D73641900FD0780 /* Debug */,
-				932360221D73641900FD0780 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		932360231D73641900FD0780 /* Build configuration list for PBXNativeTarget "FangirlsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				932360241D73641900FD0780 /* Debug */,
-				932360251D73641900FD0780 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
