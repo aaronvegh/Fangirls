@@ -32,6 +32,10 @@ class ViewController: NSViewController {
         self.progressIndicator.startAnimation(nil)
         self.maskView.wantsLayer = true
         self.maskView.layer?.backgroundColor = NSColor(deviceWhite: 0.1, alpha: 0.5).cgColor
+        
+        getYTDLVersion()
+        
+        
     }
 
     override func viewDidAppear() {
@@ -41,6 +45,32 @@ class ViewController: NSViewController {
 
     // MARK: - IBActions
     // MARK:
+    
+    private func getYTDLVersion() {
+        YoutubeDL.getYTDLVersion { (type) in
+            guard let appDelegate = NSApplication.shared.delegate as? AppDelegate else { return }
+            switch type {
+            case .Success(let value):
+                if let versionString = value.first?["Version"] {
+                    appDelegate.updateMenuItem.title = "Update YoutubeDL (\(versionString))..."
+                }
+            case .Failure:
+                appDelegate.updateMenuItem.title = "Update YoutubeDL..."
+            }
+        }
+    }
+    
+    @IBAction func updateYoutubeDL(sender: AnyObject) {
+        YoutubeDL.updateVersion() { returnType in
+            switch returnType {
+            case .Success(let data):
+                self.getYTDLVersion()
+                print("Result: \(data)")
+            default:
+                print("failed to update")
+            }
+        }
+    }
 
     @IBAction func getVideo(sender: AnyObject) {
         if let videoURL = URL(string: self.videoURLField.stringValue) {

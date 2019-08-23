@@ -6,7 +6,7 @@
 //  Copyright © 2016 Aaron Vegh. All rights reserved.
 //
 
-import Foundation
+import AppKit
 
 typealias KeyValueType = [[String: String]]
 
@@ -20,20 +20,21 @@ struct YoutubeDL {
     static var scriptPath: String {
         return Bundle.main.path(forResource: "youtube-dl", ofType: nil)!
     }
-
+    
     static func getVideoData(url: String, completion: @escaping ((ReturnType) -> Void)) {
         let task = Process()
         task.launchPath = YoutubeDL.scriptPath
-        task.arguments = ["-eg", "--get-thumbnail", "--get-filename", "--no-playlist", "\(url)"]
+        
+        task.arguments = ["--verbose", "-eg", "--get-thumbnail", "--get-filename", "--no-playlist", "-f mp4", "\(url)"]
         task.standardOutput = Pipe()
         task.launch()
         task.terminationHandler = { (process: Process) in
             guard let outputPipe = task.standardOutput as? Pipe else { return }
             let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
-
+            
             guard let output = String(data: outputData, encoding: .utf8) else { return }
             let bits = output.components(separatedBy: "\n")
-
+            
             if bits.count > 4 {
                 var finalBits = bits.splitBy(subSize: 4)
                 finalBits.removeLast()
@@ -44,27 +45,32 @@ struct YoutubeDL {
             } else {
                 completion(.Failure)
             }
-
+            
         }
     }
-
-    static func getVersion() {
+    
+    static func getYTDLVersion(completion: @escaping ((ReturnType) -> Void)) {
         let task = Process()
         task.launchPath = YoutubeDL.scriptPath
+        
         task.arguments = ["--version"]
         task.standardOutput = Pipe()
-
         task.launch()
         task.terminationHandler = { (process: Process) in
-            guard let outputPipe = task.standardOutput as? Pipe else { return }
+            guard let outputPipe = task.standardOutput as? Pipe else { completion(.Failure); return }
             let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
-
-            guard let output = String(data: outputData, encoding: .utf8) else { return }
-            print("Version \(output)")
+            
+            guard let output = String(data: outputData, encoding: .utf8) else { completion(.Failure); return }
+            let dict = ["Version": output]
+            
+            guard let appDelegate = NSApplication.shared.delegate as? AppDelegate else { return }
+            appDelegate.updateMenuItem.title = "Update YoutubeDL (\(output))..."
+            
+            return completion(.Success([dict]))
         }
     }
 
-    static func updateVersion() {
+    static func updateVersion(completion: @escaping ((ReturnType) -> Void)) {
         let task = Process()
         task.launchPath = YoutubeDL.scriptPath
         task.arguments = ["-U"]
@@ -76,7 +82,8 @@ struct YoutubeDL {
             let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
 
             guard let output = String(data: outputData, encoding: .utf8) else { return }
-            print("Update: \(output)")
+            let result = ["result": output]
+            completion(.Success([result]))
         }
     }
 }
