@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9313D5252314C35C00D2F9C1 /* youtube-dl in Resources */ = {isa = PBXBuildFile; fileRef = 9313D5242314C35C00D2F9C1 /* youtube-dl */; };
 		93235FFC1D73641800FD0780 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93235FFB1D73641800FD0780 /* AppDelegate.swift */; };
 		93235FFE1D73641800FD0780 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93235FFD1D73641800FD0780 /* ViewController.swift */; };
 		932360001D73641800FD0780 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93235FFF1D73641800FD0780 /* Assets.xcassets */; };
 		932360031D73641800FD0780 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932360011D73641800FD0780 /* Main.storyboard */; };
-		932360271D7364F800FD0780 /* youtube-dl in Resources */ = {isa = PBXBuildFile; fileRef = 932360261D7364F800FD0780 /* youtube-dl */; };
 		932360291D73657100FD0780 /* YoutubeDL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932360281D73657100FD0780 /* YoutubeDL.swift */; };
 		9323602B1D7377C500FD0780 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323602A1D7377C500FD0780 /* Video.swift */; };
 		9323602D1D7387D500FD0780 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323602C1D7387D500FD0780 /* Downloader.swift */; };
@@ -21,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9313D5242314C35C00D2F9C1 /* youtube-dl */ = {isa = PBXFileReference; lastKnownFileType = file; path = "youtube-dl"; sourceTree = "<group>"; };
 		93235FF81D73641800FD0780 /* Fangirls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fangirls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93235FFB1D73641800FD0780 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93235FFD1D73641800FD0780 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		9323600F1D73641900FD0780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		932360181D73641900FD0780 /* FangirlsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FangirlsUITests.swift; sourceTree = "<group>"; };
 		9323601A1D73641900FD0780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		932360261D7364F800FD0780 /* youtube-dl */ = {isa = PBXFileReference; lastKnownFileType = file; path = "youtube-dl"; sourceTree = "<group>"; };
 		932360281D73657100FD0780 /* YoutubeDL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeDL.swift; sourceTree = "<group>"; };
 		9323602A1D7377C500FD0780 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		9323602C1D7387D500FD0780 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
@@ -76,8 +76,8 @@
 				93235FFD1D73641800FD0780 /* ViewController.swift */,
 				93235FFF1D73641800FD0780 /* Assets.xcassets */,
 				932360011D73641800FD0780 /* Main.storyboard */,
-				932360261D7364F800FD0780 /* youtube-dl */,
 				932360041D73641800FD0780 /* Info.plist */,
+				9313D5242314C35C00D2F9C1 /* youtube-dl */,
 				932360281D73657100FD0780 /* YoutubeDL.swift */,
 				9323602A1D7377C500FD0780 /* Video.swift */,
 				9323602C1D7387D500FD0780 /* Downloader.swift */,
@@ -174,7 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				932360001D73641800FD0780 /* Assets.xcassets in Resources */,
-				932360271D7364F800FD0780 /* youtube-dl in Resources */,
+				9313D5252314C35C00D2F9C1 /* youtube-dl in Resources */,
 				932360031D73641800FD0780 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +244,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -302,6 +303,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

@@ -33,9 +33,7 @@ class ViewController: NSViewController {
         self.maskView.wantsLayer = true
         self.maskView.layer?.backgroundColor = NSColor(deviceWhite: 0.1, alpha: 0.5).cgColor
         
-        getYTDLVersion()
-        
-        
+        updateYoutubeDL(sender: self)
     }
 
     override func viewDidAppear() {
