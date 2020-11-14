@@ -1,5 +1,5 @@
 ### Fangirls
-Fangirls is a super-simple front-end to the [**youtube-dl**](https://github.com/rg3/youtube-dl) project. In short, it grabs the source of videos you watch on the web, and downloads them to your computer. Despite the name, **youtube-dl** supports vastly more services than YouTube — you can [see a full list](http://rg3.github.io/youtube-dl/supportedsites.html). It's also a pretty active project; if there's a site that it doesn't work for, the developers are willing to take requests.
+Fangirls is a super-simple front-end to the [**youtube-dl**](https://yt-dl.org) project. In short, it grabs the source of videos you watch on the web, and downloads them to your computer. Despite the name, **youtube-dl** supports vastly more services than YouTube — you can [see a full list](https://yt-dl.org/supportedsites.html). It's also a pretty active project; if there's a site that it doesn't work for, the developers are willing to take requests.
 
 One problem with **youtube-dl** is that it's a Python app that you have to use from the command line. I love the command line as much as any card-carrying nerd, but I wanted to build a quick Mac app, and this seemed like a good opportunity. 
 
