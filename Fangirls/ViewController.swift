@@ -32,8 +32,8 @@ class ViewController: NSViewController {
         self.progressIndicator.startAnimation(nil)
         self.maskView.wantsLayer = true
         self.maskView.layer?.backgroundColor = NSColor(deviceWhite: 0.1, alpha: 0.5).cgColor
-        
-        updateYoutubeDL(sender: self)
+        getYTDLVersion()
+//        updateYoutubeDL(sender: self)
     }
 
     override func viewDidAppear() {
@@ -86,6 +86,7 @@ class ViewController: NSViewController {
                 case .Success(let data):
 
                     DispatchQueue.main.async {
+                        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.resetVideoStatus), userInfo: nil, repeats: false)
                         self.statusField.stringValue = "\(data.count) video\(data.count > 1 ? "s" : "") found"
                     }
 
@@ -104,7 +105,7 @@ class ViewController: NSViewController {
                         downloader.taskTrackable = self
                         downloader.fetch(video: newVideo)
 
-                        let newTask = VideoDownloadTask(video: newVideo, downloader: downloader)
+                        let newTask = VideoDownloadTask(video: newVideo, downloader: downloader, task: downloader.downloadSessionTask)
                         Downloader.shared.downloadTasks.append(newTask)
                         DispatchQueue.main.async {
                             self.downloadTableView.reloadData()
@@ -120,6 +121,10 @@ class ViewController: NSViewController {
                 }
             })
         }
+    }
+
+    @objc private func resetVideoStatus() {
+        self.statusField.stringValue = ""
     }
 
     @IBAction func chooseDownloadLocation(sender: NSButton) {
@@ -148,7 +153,7 @@ class ViewController: NSViewController {
     private func sizeWindow() {
         DispatchQueue.main.async {
             let animate = Downloader.shared.downloadTasks.count > 0
-            let tableHeight = 100 * Downloader.shared.downloadTasks.count
+            let tableHeight = 110 * Downloader.shared.downloadTasks.count
             let newHeight = CGFloat(125 + tableHeight)
 
             if let window = self.view.window {
@@ -224,6 +229,23 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 100
+    }
+
+    func tableView(_ tableView: NSTableView, rowActionsForRow row: Int, edge: NSTableView.RowActionEdge) -> [NSTableViewRowAction] {
+        if edge == .trailing {
+            let deleteAction = NSTableViewRowAction(style: .destructive, title: "Delete") { action, index in
+                if let task = Downloader.shared.downloadTasks[safe: index] {
+                    task.task?.cancel()
+
+                    Downloader.shared.downloadTasks.remove(at: index)
+                }
+                tableView.reloadData()
+                self.sizeWindow()
+            }
+            return [deleteAction]
+        } else {
+            return []
+        }
     }
 }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -453,12 +453,12 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Fangirls" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="310"/>
+                    <view key="view" wantsLayer="YES" misplaced="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="528" height="310"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gZM-Om-6Yo">
-                                <rect key="frame" x="20" y="268" width="375" height="22"/>
+                                <rect key="frame" x="20" y="268" width="431" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="UX4-RU-AbD"/>
                                 </constraints>
@@ -472,7 +472,7 @@
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I3L-6h-JFX">
-                                <rect key="frame" x="397" y="262" width="58" height="32"/>
+                                <rect key="frame" x="452" y="262" width="60" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="geX-3y-oGM"/>
                                     <constraint firstAttribute="height" constant="21" id="hSO-Mr-qmf"/>
@@ -486,21 +486,20 @@
                                 </connections>
                             </button>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="87" horizontalPageScroll="10" verticalLineScroll="87" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rr-7x-KXr">
-                                <rect key="frame" x="0.0" y="40" width="480" height="208"/>
+                                <rect key="frame" x="0.0" y="40" width="536" height="208"/>
                                 <clipView key="contentView" id="PMr-5f-ocm">
-                                    <rect key="frame" x="1" y="1" width="478" height="206"/>
+                                    <rect key="frame" x="1" y="1" width="534" height="206"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="85" viewBased="YES" id="U6a-q0-le7">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="206"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="534" height="206"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
                                                 <tableColumn identifier="imageCell" width="116" minWidth="40" maxWidth="1000" id="mFD-kx-8N3">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -512,11 +511,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="T3J-Q5-eFp" customClass="ImageTableCellView" customModule="Fangirls" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="116" height="85"/>
+                                                            <rect key="frame" x="1" y="1" width="121" height="85"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xzp-hY-dSb">
-                                                                    <rect key="frame" x="20" y="10" width="90" height="65"/>
+                                                                    <rect key="frame" x="20" y="10" width="95" height="65"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Eh5-P7-8va"/>
                                                                 </imageView>
@@ -527,9 +526,8 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="progressCell" width="356" minWidth="40" maxWidth="1000" id="cLQ-ZB-xcF">
+                                                <tableColumn identifier="progressCell" width="403" minWidth="40" maxWidth="1000" id="cLQ-ZB-xcF">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -541,53 +539,85 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="3cA-Af-PgC" customClass="ProgressTableCellView" customModule="Fangirls" customModuleProvider="target">
-                                                            <rect key="frame" x="120" y="1" width="356" height="85"/>
+                                                            <rect key="frame" x="125" y="1" width="407" height="85"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="twB-j7-o91">
-                                                                    <rect key="frame" x="0.0" y="53" width="356" height="17"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="17" id="Qxe-Jx-lTp"/>
-                                                                    </constraints>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="ifj-cK-feF">
-                                                                        <font key="font" metaFont="systemBold" size="14"/>
-                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                </textField>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j3d-Yj-NU6">
-                                                                    <rect key="frame" x="1" y="16" width="354" height="17"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="17" id="Bnf-bR-CED"/>
-                                                                    </constraints>
-                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="jeE-Iz-7PB">
-                                                                        <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                </textField>
-                                                                <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="2U6-hW-cXz">
-                                                                    <rect key="frame" x="3" y="26" width="350" height="20"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="18" id="esn-00-Xgk"/>
-                                                                    </constraints>
-                                                                </progressIndicator>
+                                                                <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pj8-69-a6P">
+                                                                    <rect key="frame" x="8" y="8" width="391" height="69"/>
+                                                                    <subviews>
+                                                                        <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="1" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="88B-LB-tuC">
+                                                                            <rect key="frame" x="0.0" y="8" width="352" height="54"/>
+                                                                            <subviews>
+                                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="twB-j7-o91">
+                                                                                    <rect key="frame" x="-2" y="37" width="356" height="17"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="17" id="Qxe-Jx-lTp"/>
+                                                                                    </constraints>
+                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" id="ifj-cK-feF">
+                                                                                        <font key="font" metaFont="systemBold" size="14"/>
+                                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                    </textFieldCell>
+                                                                                </textField>
+                                                                                <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="2U6-hW-cXz">
+                                                                                    <rect key="frame" x="0.0" y="17" width="350" height="20"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="18" id="esn-00-Xgk"/>
+                                                                                    </constraints>
+                                                                                </progressIndicator>
+                                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j3d-Yj-NU6">
+                                                                                    <rect key="frame" x="-2" y="0.0" width="354" height="17"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="17" id="Bnf-bR-CED"/>
+                                                                                    </constraints>
+                                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" id="jeE-Iz-7PB">
+                                                                                        <font key="font" metaFont="system"/>
+                                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                    </textFieldCell>
+                                                                                </textField>
+                                                                            </subviews>
+                                                                            <visibilityPriorities>
+                                                                                <integer value="1000"/>
+                                                                                <integer value="1000"/>
+                                                                                <integer value="1000"/>
+                                                                            </visibilityPriorities>
+                                                                            <customSpacing>
+                                                                                <real value="3.4028234663852886e+38"/>
+                                                                                <real value="3.4028234663852886e+38"/>
+                                                                                <real value="3.4028234663852886e+38"/>
+                                                                            </customSpacing>
+                                                                        </stackView>
+                                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ddx-y0-uzh">
+                                                                            <rect key="frame" x="353" y="18" width="45" height="32"/>
+                                                                            <buttonCell key="cell" type="push" bezelStyle="rounded" image="stop.circle" catalog="system" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gGX-38-ByT">
+                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                <font key="font" metaFont="system"/>
+                                                                            </buttonCell>
+                                                                            <connections>
+                                                                                <action selector="deleteDownloadWithSender:" target="3cA-Af-PgC" id="Lhp-kJ-YNw"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                    <visibilityPriorities>
+                                                                        <integer value="1000"/>
+                                                                        <integer value="1000"/>
+                                                                    </visibilityPriorities>
+                                                                    <customSpacing>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                    </customSpacing>
+                                                                </stackView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="twB-j7-o91" firstAttribute="leading" secondItem="3cA-Af-PgC" secondAttribute="leading" constant="2" id="3rP-DU-lVp"/>
-                                                                <constraint firstAttribute="trailing" secondItem="j3d-Yj-NU6" secondAttribute="trailing" constant="3" id="6P2-be-Hc9"/>
-                                                                <constraint firstItem="j3d-Yj-NU6" firstAttribute="leading" secondItem="3cA-Af-PgC" secondAttribute="leading" constant="3" id="H9L-qw-C42"/>
-                                                                <constraint firstAttribute="trailing" secondItem="2U6-hW-cXz" secondAttribute="trailing" constant="3" id="PLP-hf-eiA"/>
-                                                                <constraint firstItem="j3d-Yj-NU6" firstAttribute="top" secondItem="twB-j7-o91" secondAttribute="bottom" constant="20" id="TaK-Vt-OlE"/>
-                                                                <constraint firstItem="2U6-hW-cXz" firstAttribute="leading" secondItem="3cA-Af-PgC" secondAttribute="leading" constant="3" id="gid-PS-KyN"/>
-                                                                <constraint firstAttribute="trailing" secondItem="twB-j7-o91" secondAttribute="trailing" constant="2" id="iAd-Hq-ehG"/>
-                                                                <constraint firstItem="2U6-hW-cXz" firstAttribute="top" secondItem="twB-j7-o91" secondAttribute="bottom" constant="8" id="lK8-RH-Nvd"/>
-                                                                <constraint firstItem="twB-j7-o91" firstAttribute="top" secondItem="3cA-Af-PgC" secondAttribute="top" constant="15" id="n4O-m3-nYc"/>
+                                                                <constraint firstAttribute="trailing" secondItem="pj8-69-a6P" secondAttribute="trailing" constant="8" id="HvM-hC-nJS"/>
+                                                                <constraint firstItem="pj8-69-a6P" firstAttribute="leading" secondItem="3cA-Af-PgC" secondAttribute="leading" constant="8" id="P4U-AJ-mkI"/>
+                                                                <constraint firstAttribute="bottom" secondItem="pj8-69-a6P" secondAttribute="bottom" constant="8" id="glp-ye-pz8"/>
+                                                                <constraint firstItem="pj8-69-a6P" firstAttribute="top" secondItem="3cA-Af-PgC" secondAttribute="top" constant="8" id="hZj-Bb-B3X"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="progressIndictor" destination="2U6-hW-cXz" id="JVg-az-TTQ"/>
                                                                 <outlet property="progressLabel" destination="j3d-Yj-NU6" id="t5P-Pd-hiW"/>
-                                                                <outlet property="progressLabelTopConstraint" destination="TaK-Vt-OlE" id="SHt-xy-KwK"/>
                                                                 <outlet property="videoTitle" destination="twB-j7-o91" id="rCB-Bg-UKE"/>
                                                             </connections>
                                                         </tableCellView>
@@ -625,7 +655,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x5L-S9-b4c">
-                                <rect key="frame" x="54" y="12" width="216" height="17"/>
+                                <rect key="frame" x="54" y="12" width="215" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="YM9-BY-hWW"/>
                                 </constraints>
@@ -636,7 +666,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uTd-6B-czh">
-                                <rect key="frame" x="18" y="248" width="433" height="17"/>
+                                <rect key="frame" x="18" y="248" width="489" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="t4B-uM-uKu"/>
                                 </constraints>
@@ -647,7 +677,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-7b-r3n">
-                                <rect key="frame" x="276" y="11" width="20" height="17"/>
+                                <rect key="frame" x="275" y="12" width="20" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="AJ7-1L-u2V"/>
                                     <constraint firstAttribute="height" constant="16" id="u3f-y9-I4L"/>
@@ -661,10 +691,10 @@
                                 </connections>
                             </button>
                             <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9pu-Hm-k3F">
-                                <rect key="frame" x="0.0" y="248" width="480" height="62"/>
+                                <rect key="frame" x="0.0" y="248" width="536" height="62"/>
                                 <subviews>
                                     <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="RgE-w1-n72">
-                                        <rect key="frame" x="224" y="15" width="32" height="32"/>
+                                        <rect key="frame" x="252" y="15" width="32" height="32"/>
                                     </progressIndicator>
                                 </subviews>
                                 <constraints>
@@ -717,6 +747,7 @@
     </scenes>
     <resources>
         <image name="710-folder-toolbar" width="22" height="18"/>
-        <image name="NSGoRightTemplate" width="9" height="12"/>
+        <image name="NSGoRightTemplate" width="10" height="14"/>
+        <image name="stop.circle" catalog="system" width="15" height="15"/>
     </resources>
 </document>

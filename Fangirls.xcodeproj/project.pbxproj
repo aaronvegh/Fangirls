@@ -18,6 +18,7 @@
 		9323602F1D73A67000FD0780 /* ProgressTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323602E1D73A67000FD0780 /* ProgressTableCellView.swift */; };
 		935B7E341D7A703300558ED4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B7E331D7A703300558ED4 /* Settings.swift */; };
 		93BFE5571D77D15900F2BB6C /* ImageTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BFE5561D77D15900F2BB6C /* ImageTableCellView.swift */; };
+		93C4D064273CA83300DADE78 /* Array+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C4D063273CA83300DADE78 /* Array+Collection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		9323602E1D73A67000FD0780 /* ProgressTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressTableCellView.swift; sourceTree = "<group>"; };
 		935B7E331D7A703300558ED4 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		93BFE5561D77D15900F2BB6C /* ImageTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableCellView.swift; sourceTree = "<group>"; };
+		93C4D063273CA83300DADE78 /* Array+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Collection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				9323602E1D73A67000FD0780 /* ProgressTableCellView.swift */,
 				93BFE5561D77D15900F2BB6C /* ImageTableCellView.swift */,
 				935B7E331D7A703300558ED4 /* Settings.swift */,
+				93C4D063273CA83300DADE78 /* Array+Collection.swift */,
 			);
 			path = Fangirls;
 			sourceTree = "<group>";
@@ -113,6 +116,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9323601D1D73641900FD0780 /* Build configuration list for PBXNativeTarget "Fangirls" */;
 			buildPhases = (
+				93C4D065273CAEFC00DADE78 /* Increment Build Number */,
 				93235FF41D73641800FD0780 /* Sources */,
 				93235FF51D73641800FD0780 /* Frameworks */,
 				93235FF61D73641800FD0780 /* Resources */,
@@ -181,6 +185,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		93C4D065273CAEFC00DADE78 /* Increment Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\n# To make executable, use: chmod u+x Build-Versioning-Scripts/Increment_Build_Number.sh\n# to locate your target's info.plist use\n# ${PRODUCT_SETTINGS_PATH}\n\necho \"----\"\necho \"Info.plist for target: ${PRODUCT_SETTINGS_PATH}\"\n\nbuildNum=$(/usr/libexec/Plistbuddy -c \"Print CFBundleVersion\" \"${PRODUCT_SETTINGS_PATH}\")\necho \"Current build #: $buildNum\"\n\nif [ -z \"$buildNum\" ]; then\necho \"No build number found in $PRODUCT_SETTINGS_PATH\"\nexit 2\nfi\n\nbuildNum=$(expr $buildNum + 1)\necho \"Build # incremented to: $buildNum\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNum\" \"$PRODUCT_SETTINGS_PATH\"\necho \"----\"\nexit 0\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		93235FF41D73641800FD0780 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -190,6 +215,7 @@
 				93BFE5571D77D15900F2BB6C /* ImageTableCellView.swift in Sources */,
 				935B7E341D7A703300558ED4 /* Settings.swift in Sources */,
 				932360291D73657100FD0780 /* YoutubeDL.swift in Sources */,
+				93C4D064273CA83300DADE78 /* Array+Collection.swift in Sources */,
 				9323602F1D73A67000FD0780 /* ProgressTableCellView.swift in Sources */,
 				9323602B1D7377C500FD0780 /* Video.swift in Sources */,
 				93235FFE1D73641800FD0780 /* ViewController.swift in Sources */,
@@ -331,7 +357,8 @@
 				DEVELOPMENT_TEAM = 9P5W2L6F6B;
 				INFOPLIST_FILE = Fangirls/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MARKETING_VERSION = 1.2;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.innoveghtive.Fangirls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -348,7 +375,8 @@
 				DEVELOPMENT_TEAM = 9P5W2L6F6B;
 				INFOPLIST_FILE = Fangirls/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MARKETING_VERSION = 1.2;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.innoveghtive.Fangirls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

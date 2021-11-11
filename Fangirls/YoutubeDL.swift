@@ -57,16 +57,18 @@ struct YoutubeDL {
         task.standardOutput = Pipe()
         task.launch()
         task.terminationHandler = { (process: Process) in
-            guard let outputPipe = task.standardOutput as? Pipe else { completion(.Failure); return }
-            let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
-            
-            guard let output = String(data: outputData, encoding: .utf8) else { completion(.Failure); return }
-            let dict = ["Version": output]
-            
-            guard let appDelegate = NSApplication.shared.delegate as? AppDelegate else { return }
-            appDelegate.updateMenuItem.title = "Update YoutubeDL (\(output))..."
-            
-            return completion(.Success([dict]))
+            DispatchQueue.main.async {
+                guard let outputPipe = task.standardOutput as? Pipe else { completion(.Failure); return }
+                let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
+
+                guard let output = String(data: outputData, encoding: .utf8) else { completion(.Failure); return }
+                let dict = ["Version": output]
+
+                guard let appDelegate = NSApplication.shared.delegate as? AppDelegate else { return }
+                appDelegate.updateMenuItem.title = "Update YoutubeDL (\(output))..."
+
+                return completion(.Success([dict]))
+            }
         }
     }
 
@@ -83,7 +85,9 @@ struct YoutubeDL {
 
             guard let output = String(data: outputData, encoding: .utf8) else { return }
             let result = ["result": output]
-            completion(.Success([result]))
+            DispatchQueue.main.async {
+                completion(.Success([result]))
+            }
         }
     }
 }

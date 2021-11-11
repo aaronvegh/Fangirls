@@ -21,6 +21,7 @@ protocol TaskTrackable {
 struct VideoDownloadTask {
     var video: Video?
     var downloader: Downloader?
+    var task: URLSessionDownloadTask?
 }
 
 extension VideoDownloadTask: Equatable {}
@@ -42,14 +43,15 @@ class Downloader: NSObject, URLSessionDownloadDelegate {
     var downloadedData: Data?
     var video: Video?
     var taskTrackable: TaskTrackable?
+    var downloadSessionTask: URLSessionDownloadTask?
 
     func fetch(video: Video) {
         self.video = video
         let defaultConfig = URLSessionConfiguration.default
         let delegateQueue = OperationQueue()
         let session = URLSession(configuration: defaultConfig, delegate: self, delegateQueue: delegateQueue)
-        let task = session.downloadTask(with: URL(string: video.downloadURL)!)
-        task.resume()
+        downloadSessionTask = session.downloadTask(with: URL(string: video.downloadURL)!)
+        downloadSessionTask?.resume()
     }
 
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {

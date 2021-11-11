@@ -16,6 +16,12 @@ class Video {
     var downloadProgress: Progress?
 }
 
+extension Video: Equatable {
+    static func ==(lhs: Video, rhs: Video) -> Bool {
+        return lhs.downloadURL == rhs.downloadURL
+    }
+}
+
 extension Video: Downloadable {
     func downloadDidStart() {}
 
