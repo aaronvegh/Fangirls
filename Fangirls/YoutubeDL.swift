@@ -18,14 +18,14 @@ enum ReturnType {
 struct YoutubeDL {
 
     static var scriptPath: String {
-        return Bundle.main.path(forResource: "youtube-dl", ofType: nil)!
+        return Bundle.main.path(forResource: "yt-dlp", ofType: nil)!
     }
     
     static func getVideoData(url: String, completion: @escaping ((ReturnType) -> Void)) {
         let task = Process()
         task.launchPath = YoutubeDL.scriptPath
         
-        task.arguments = ["--verbose", "-eg", "--get-thumbnail", "--get-filename", "--no-playlist", "-f mp4", "\(url)"]
+        task.arguments = ["--verbose", "-eg", "--get-thumbnail", "--get-filename", "--no-playlist", "-f mp4", "-f bestvideo[protocol!=http_dash_segments]", "\(url)"]
         task.standardOutput = Pipe()
         task.launch()
         task.terminationHandler = { (process: Process) in
@@ -65,7 +65,7 @@ struct YoutubeDL {
                 let dict = ["Version": output]
 
                 guard let appDelegate = NSApplication.shared.delegate as? AppDelegate else { return }
-                appDelegate.updateMenuItem.title = "Update YoutubeDL (\(output))..."
+                appDelegate.updateMenuItem.title = "Update yt-dlp (\(output))..."
 
                 return completion(.Success([dict]))
             }

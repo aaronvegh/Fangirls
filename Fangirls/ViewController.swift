@@ -50,10 +50,10 @@ class ViewController: NSViewController {
             switch type {
             case .Success(let value):
                 if let versionString = value.first?["Version"] {
-                    appDelegate.updateMenuItem.title = "Update YoutubeDL (\(versionString))..."
+                    appDelegate.updateMenuItem.title = "Update yt-dlp (\(versionString))..."
                 }
             case .Failure:
-                appDelegate.updateMenuItem.title = "Update YoutubeDL..."
+                appDelegate.updateMenuItem.title = "Update yt-dlp..."
             }
         }
     }
@@ -103,7 +103,12 @@ class ViewController: NSViewController {
 
                         let downloader = Downloader()
                         downloader.taskTrackable = self
-                        downloader.fetch(video: newVideo)
+
+                        if newVideo.downloadURL.contains(".m3u8") {
+                            downloader.fetchStream(video: newVideo)
+                        } else {
+                            downloader.fetch(video: newVideo)
+                        }
 
                         let newTask = VideoDownloadTask(video: newVideo, downloader: downloader, task: downloader.downloadSessionTask)
                         Downloader.shared.downloadTasks.append(newTask)

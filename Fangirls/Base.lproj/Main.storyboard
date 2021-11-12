@@ -404,7 +404,7 @@
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Update YoutubeDL..." id="1b9-qi-lOc">
+                                        <menuItem title="Update yt-dlp..." id="1b9-qi-lOc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="updateYoutubeDLWithSender:" target="Ady-hI-5gd" id="t9i-6X-KxB"/>
@@ -458,7 +458,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gZM-Om-6Yo">
-                                <rect key="frame" x="20" y="268" width="431" height="22"/>
+                                <rect key="frame" x="20" y="268" width="547" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="UX4-RU-AbD"/>
                                 </constraints>
@@ -472,7 +472,7 @@
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I3L-6h-JFX">
-                                <rect key="frame" x="452" y="262" width="60" height="33"/>
+                                <rect key="frame" x="568" y="262" width="60" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="geX-3y-oGM"/>
                                     <constraint firstAttribute="height" constant="21" id="hSO-Mr-qmf"/>
@@ -486,13 +486,13 @@
                                 </connections>
                             </button>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="87" horizontalPageScroll="10" verticalLineScroll="87" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rr-7x-KXr">
-                                <rect key="frame" x="0.0" y="40" width="536" height="208"/>
+                                <rect key="frame" x="0.0" y="40" width="652" height="208"/>
                                 <clipView key="contentView" id="PMr-5f-ocm">
-                                    <rect key="frame" x="1" y="1" width="534" height="206"/>
+                                    <rect key="frame" x="1" y="1" width="650" height="206"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="85" viewBased="YES" id="U6a-q0-le7">
-                                            <rect key="frame" x="0.0" y="0.0" width="534" height="206"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="650" height="206"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -526,7 +526,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="progressCell" width="403" minWidth="40" maxWidth="1000" id="cLQ-ZB-xcF">
+                                                <tableColumn identifier="progressCell" width="374" minWidth="40" maxWidth="1000" id="cLQ-ZB-xcF">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -539,7 +539,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="3cA-Af-PgC" customClass="ProgressTableCellView" customModule="Fangirls" customModuleProvider="target">
-                                                            <rect key="frame" x="125" y="1" width="407" height="85"/>
+                                                            <rect key="frame" x="125" y="1" width="378" height="85"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pj8-69-a6P">
@@ -666,7 +666,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uTd-6B-czh">
-                                <rect key="frame" x="18" y="248" width="489" height="17"/>
+                                <rect key="frame" x="18" y="248" width="605" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="t4B-uM-uKu"/>
                                 </constraints>
@@ -691,10 +691,10 @@
                                 </connections>
                             </button>
                             <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9pu-Hm-k3F">
-                                <rect key="frame" x="0.0" y="248" width="536" height="62"/>
+                                <rect key="frame" x="0.0" y="248" width="652" height="62"/>
                                 <subviews>
                                     <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="RgE-w1-n72">
-                                        <rect key="frame" x="252" y="15" width="32" height="32"/>
+                                        <rect key="frame" x="310" y="15" width="32" height="32"/>
                                     </progressIndicator>
                                 </subviews>
                                 <constraints>

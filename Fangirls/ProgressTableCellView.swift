@@ -13,7 +13,7 @@ class ProgressTableCellView: NSTableCellView {
     @IBOutlet weak var videoTitle: NSTextField!
     @IBOutlet weak var progressLabel: NSTextField!
     @IBOutlet weak var progressIndictor: NSProgressIndicator!
-    @IBOutlet weak var progressLabelTopConstraint: NSLayoutConstraint!
+
     var video: Video? {
         didSet {
             progressLabel.stringValue = "Initializing..."
@@ -34,12 +34,16 @@ class ProgressTableCellView: NSTableCellView {
             if unitCount == 100 {
                 DispatchQueue.main.async {
                     self.progressIndictor.removeFromSuperview()
-                    self.progressLabelTopConstraint.constant = 8
+                    self.removeObserver()
                 }
             }
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
+    }
+
+    private func removeObserver() {
+        self.video?.downloadProgress?.removeObserver(self, forKeyPath: "fractionCompleted")
     }
 
     @IBAction func deleteDownload(sender: NSButton) {
@@ -51,6 +55,8 @@ class ProgressTableCellView: NSTableCellView {
 
         progressLabel.stringValue = "Download cancelled."
         progressIndictor.doubleValue = 0.0
+        self.video = nil
+        removeObserver()
     }
 
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVKit
 
 protocol Downloadable {
     func downloadDidStart()
@@ -21,7 +22,7 @@ protocol TaskTrackable {
 struct VideoDownloadTask {
     var video: Video?
     var downloader: Downloader?
-    var task: URLSessionDownloadTask?
+    var task: URLSessionTask?
 }
 
 extension VideoDownloadTask: Equatable {}
@@ -40,17 +41,41 @@ class Downloader: NSObject, URLSessionDownloadDelegate {
         }
     }
 
+    let configuration = URLSessionConfiguration.background(withIdentifier: "downloadIdentifier")
+
     var downloadedData: Data?
     var video: Video?
     var taskTrackable: TaskTrackable?
-    var downloadSessionTask: URLSessionDownloadTask?
+    var downloadSessionTask: URLSessionTask?
 
     func fetch(video: Video) {
         self.video = video
-        let defaultConfig = URLSessionConfiguration.default
         let delegateQueue = OperationQueue()
-        let session = URLSession(configuration: defaultConfig, delegate: self, delegateQueue: delegateQueue)
+        let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: delegateQueue)
         downloadSessionTask = session.downloadTask(with: URL(string: video.downloadURL)!)
+        downloadSessionTask?.resume()
+    }
+
+    func fetchStream(video: Video) {
+        self.video = video
+
+            // Create a new AVAssetDownloadURLSession with background configuration, delegate, and queue
+        let downloadSession = AVAssetDownloadURLSession(
+            configuration: configuration,
+            assetDownloadDelegate: self,
+            delegateQueue: OperationQueue.main)
+
+        guard let url = URL(string: video.downloadURL) else { return }
+        let asset = AVURLAsset(url: url)
+
+        // Create new AVAssetDownloadTask for the desired asset
+        downloadSessionTask = downloadSession.makeAssetDownloadTask(
+            asset: asset,
+            assetTitle: video.title,
+            assetArtworkData: nil,
+            options: nil)
+
+        // Start task and begin download
         downloadSessionTask?.resume()
     }
 
@@ -66,6 +91,25 @@ class Downloader: NSObject, URLSessionDownloadDelegate {
     }
 
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        video?.downloadDidComplete(fileLocation: location, error: nil)
+    }
+}
+
+extension Downloader: AVAssetDownloadDelegate {
+    func urlSession(_ session: URLSession, assetDownloadTask: AVAssetDownloadTask, didLoad timeRange: CMTimeRange, totalTimeRangesLoaded loadedTimeRanges: [NSValue], timeRangeExpectedToLoad: CMTimeRange) {
+        var percentComplete: Float = 0.0
+        // Iterate through the loaded time ranges
+        for value in loadedTimeRanges {
+            // Unwrap the CMTimeRange from the NSValue
+            let loadedTimeRange = value.timeRangeValue
+            // Calculate the percentage of the total expected asset duration
+            percentComplete += Float(loadedTimeRange.duration.seconds / timeRangeExpectedToLoad.duration.seconds)
+        }
+        percentComplete *= 100
+        video?.downloadUpdatedProgress(percentComplete: percentComplete)
+    }
+
+    func urlSession(_ session: URLSession, assetDownloadTask: AVAssetDownloadTask, didFinishDownloadingTo location: URL) {
         video?.downloadDidComplete(fileLocation: location, error: nil)
     }
 }
