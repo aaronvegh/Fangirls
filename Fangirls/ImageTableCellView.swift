@@ -14,6 +14,9 @@ class ImageTableCellView: NSTableCellView {
         guard let myImageView = self.imageView else { return }
         myImageView.wantsLayer = true
         myImageView.layer?.backgroundColor = CGColor.white
+        myImageView.layer?.borderColor = CGColor.black
+        myImageView.layer?.borderWidth = 2
+        myImageView.layer?.cornerRadius = 5
 
         let shadow = NSShadow()
         shadow.shadowColor = NSColor.black

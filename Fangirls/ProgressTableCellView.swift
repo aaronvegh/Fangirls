@@ -14,49 +14,44 @@ class ProgressTableCellView: NSTableCellView {
     @IBOutlet weak var progressLabel: NSTextField!
     @IBOutlet weak var progressIndictor: NSProgressIndicator!
 
-    var video: Video? {
-        didSet {
-            progressLabel.stringValue = "Initializing..."
-            if self.progressIndictor != nil {
-                video?.downloadProgress?.addObserver(self, forKeyPath: "fractionCompleted", options: .new, context: nil)
-            }
-        }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.task = nil
+        self.progressIndictor.isHidden = false
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "fractionCompleted" && self.progressIndictor != nil {
-            guard let unitCount = video?.downloadProgress?.completedUnitCount else { return }
-            DispatchQueue.main.async {
-                self.progressIndictor.doubleValue = Double(unitCount)
-                self.progressLabel.stringValue = (self.video?.downloadProgress?.localizedDescription)!
-            }
+    var task: InProgressTask? {
+        didSet {
+            guard
+                  let progressIndicator = self.progressIndictor,
+                  let task = task,
+                  task.process != nil else { return }
+            videoTitle.stringValue = task.title ?? "No title"
+            progressLabel.stringValue = "\(task.percent ?? "0%") of \(task.totalSize ?? "0B") at \(task.speed ?? "0bps"). ETA \(task.timeRemaining ?? "00")"
+            guard
+                let percent = task.percent?.replacingOccurrences(of: "%", with: ""),
+                let unitCount = Double(percent) else { return }
+            progressIndicator.doubleValue = unitCount
 
             if unitCount == 100 {
-                DispatchQueue.main.async {
-                    self.progressIndictor.removeFromSuperview()
-                    self.removeObserver()
-                }
+                finishDownload()
+                progressLabel.stringValue = "Download complete."
             }
-        } else {
-            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
-    }
-
-    private func removeObserver() {
-        self.video?.downloadProgress?.removeObserver(self, forKeyPath: "fractionCompleted")
     }
 
     @IBAction func deleteDownload(sender: NSButton) {
-        guard let task = Downloader.shared.downloadTasks.first(where: { $0.video == video }),
-              let index = Downloader.shared.downloadTasks.firstIndex(where: { $0.video == video }) else { return }
-        task.task?.cancel()
-
-        Downloader.shared.downloadTasks.remove(at: index)
-
+        guard let task = TaskManager.shared.inProgressTasks.first(where: { $0.identifier == task?.identifier }) else { return }
+        task.process?.terminate()
+        task.process = nil
         progressLabel.stringValue = "Download cancelled."
-        progressIndictor.doubleValue = 0.0
-        self.video = nil
-        removeObserver()
+        finishDownload()
     }
 
+    private func finishDownload() {
+        if let progressIndicator = progressIndictor {
+            progressIndicator.isHidden = true
+        }
+        self.task = nil
+    }
 }

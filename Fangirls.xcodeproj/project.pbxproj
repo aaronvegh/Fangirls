@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9313D5252314C35C00D2F9C1 /* youtube-dl in Resources */ = {isa = PBXBuildFile; fileRef = 9313D5242314C35C00D2F9C1 /* youtube-dl */; };
 		93235FFC1D73641800FD0780 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93235FFB1D73641800FD0780 /* AppDelegate.swift */; };
 		93235FFE1D73641800FD0780 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93235FFD1D73641800FD0780 /* ViewController.swift */; };
 		932360001D73641800FD0780 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93235FFF1D73641800FD0780 /* Assets.xcassets */; };
 		932360031D73641800FD0780 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932360011D73641800FD0780 /* Main.storyboard */; };
 		932360291D73657100FD0780 /* YoutubeDL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932360281D73657100FD0780 /* YoutubeDL.swift */; };
 		9323602B1D7377C500FD0780 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323602A1D7377C500FD0780 /* Video.swift */; };
-		9323602D1D7387D500FD0780 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323602C1D7387D500FD0780 /* Downloader.swift */; };
 		9323602F1D73A67000FD0780 /* ProgressTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323602E1D73A67000FD0780 /* ProgressTableCellView.swift */; };
 		935B7E341D7A703300558ED4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B7E331D7A703300558ED4 /* Settings.swift */; };
 		936C7B52273DE7FC005AA4D5 /* yt-dlp in Resources */ = {isa = PBXBuildFile; fileRef = 936C7B51273DE7B1005AA4D5 /* yt-dlp */; };
@@ -23,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9313D5242314C35C00D2F9C1 /* youtube-dl */ = {isa = PBXFileReference; lastKnownFileType = file; path = "youtube-dl"; sourceTree = "<group>"; };
 		93235FF81D73641800FD0780 /* Fangirls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fangirls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93235FFB1D73641800FD0780 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93235FFD1D73641800FD0780 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +33,6 @@
 		9323601A1D73641900FD0780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		932360281D73657100FD0780 /* YoutubeDL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeDL.swift; sourceTree = "<group>"; };
 		9323602A1D7377C500FD0780 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
-		9323602C1D7387D500FD0780 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		9323602E1D73A67000FD0780 /* ProgressTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressTableCellView.swift; sourceTree = "<group>"; };
 		935B7E331D7A703300558ED4 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		936C7B51273DE7B1005AA4D5 /* yt-dlp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "yt-dlp"; sourceTree = "<group>"; };
@@ -81,11 +77,9 @@
 				93235FFF1D73641800FD0780 /* Assets.xcassets */,
 				932360011D73641800FD0780 /* Main.storyboard */,
 				932360041D73641800FD0780 /* Info.plist */,
-				9313D5242314C35C00D2F9C1 /* youtube-dl */,
 				936C7B51273DE7B1005AA4D5 /* yt-dlp */,
 				932360281D73657100FD0780 /* YoutubeDL.swift */,
 				9323602A1D7377C500FD0780 /* Video.swift */,
-				9323602C1D7387D500FD0780 /* Downloader.swift */,
 				9323602E1D73A67000FD0780 /* ProgressTableCellView.swift */,
 				93BFE5561D77D15900F2BB6C /* ImageTableCellView.swift */,
 				935B7E331D7A703300558ED4 /* Settings.swift */,
@@ -140,13 +134,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "Aaron Vegh";
 				TargetAttributes = {
 					93235FF71D73641800FD0780 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 9P5W2L6F6B;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1310;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -158,10 +152,9 @@
 			};
 			buildConfigurationList = 93235FF31D73641800FD0780 /* Build configuration list for PBXProject "Fangirls" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -182,7 +175,6 @@
 			files = (
 				932360001D73641800FD0780 /* Assets.xcassets in Resources */,
 				936C7B52273DE7FC005AA4D5 /* yt-dlp in Resources */,
-				9313D5252314C35C00D2F9C1 /* youtube-dl in Resources */,
 				932360031D73641800FD0780 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,7 +207,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9323602D1D7387D500FD0780 /* Downloader.swift in Sources */,
 				93BFE5571D77D15900F2BB6C /* ImageTableCellView.swift in Sources */,
 				935B7E341D7A703300558ED4 /* Settings.swift in Sources */,
 				932360291D73657100FD0780 /* YoutubeDL.swift in Sources */,
@@ -245,6 +236,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -265,6 +257,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -304,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -324,6 +318,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -359,13 +354,14 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9P5W2L6F6B;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Fangirls/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.innoveghtive.Fangirls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -377,13 +373,14 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9P5W2L6F6B;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Fangirls/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.innoveghtive.Fangirls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

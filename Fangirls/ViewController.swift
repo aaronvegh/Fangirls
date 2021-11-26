@@ -8,6 +8,12 @@
 
 import Cocoa
 
+class TaskManager {
+    static let shared = TaskManager()
+
+    var inProgressTasks: [InProgressTask] = []
+}
+
 class ViewController: NSViewController {
 
     // MARK: - Properties
@@ -48,11 +54,11 @@ class ViewController: NSViewController {
         YoutubeDL.getYTDLVersion { (type) in
             guard let appDelegate = NSApplication.shared.delegate as? AppDelegate else { return }
             switch type {
-            case .Success(let value):
+            case .success(let value):
                 if let versionString = value.first?["Version"] {
                     appDelegate.updateMenuItem.title = "Update yt-dlp (\(versionString))..."
                 }
-            case .Failure:
+            case .failure:
                 appDelegate.updateMenuItem.title = "Update yt-dlp..."
             }
         }
@@ -61,7 +67,7 @@ class ViewController: NSViewController {
     @IBAction func updateYoutubeDL(sender: AnyObject) {
         YoutubeDL.updateVersion() { returnType in
             switch returnType {
-            case .Success(let data):
+            case .success(let data):
                 self.getYTDLVersion()
                 print("Result: \(data)")
             default:
@@ -76,55 +82,33 @@ class ViewController: NSViewController {
             
             self.maskView.isHidden = false
 
-            YoutubeDL.getVideoData(url: videoURL.absoluteString, completion: { (returnType) in
+            let task = InProgressTask(identifier: videoURL.absoluteString)
+            TaskManager.shared.inProgressTasks.append(task)
+            downloadTableView.reloadData()
+            
+            let youtubeDL = YoutubeDL(task: task)
 
+            self.sizeWindow()
+
+            youtubeDL.getVideoData { success in
                 DispatchQueue.main.async {
+                    guard let task = TaskManager.shared.inProgressTasks.first(where: { $0.identifier == videoURL.absoluteString }),
+                          task.process != nil else {
+                              self.downloadTableView.reloadData()
+                              return
+                          }
+
+                    if let index = TaskManager.shared.inProgressTasks.firstIndex(where:  { $0.identifier == videoURL.absoluteString }),
+                       let progressCell = self.downloadTableView.view(atColumn: 1, row: index, makeIfNecessary: true) as? ProgressTableCellView {
+                        progressCell.task = task
+
+                        if let imageCell = self.downloadTableView.view(atColumn: 0, row: index, makeIfNecessary: true) as? ImageTableCellView {
+                            self.setThumbnailImage(for: task, in: imageCell)
+                        }
+                    }
                     self.maskView.isHidden = true
                 }
-
-                switch returnType {
-                case .Success(let data):
-
-                    DispatchQueue.main.async {
-                        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.resetVideoStatus), userInfo: nil, repeats: false)
-                        self.statusField.stringValue = "\(data.count) video\(data.count > 1 ? "s" : "") found"
-                    }
-
-                    for dict in data {
-
-                        let progress = Progress(totalUnitCount: 100)
-                        
-                        let newVideo = Video()
-                        newVideo.title = dict["title"] ?? ""
-                        newVideo.downloadURL = dict["url"] ?? ""
-                        newVideo.thumbnailURL = dict["thumbnailURL"] ?? ""
-                        newVideo.downloadProgress = progress
-                        newVideo.filename = dict["filename"] ?? ""
-
-                        let downloader = Downloader()
-                        downloader.taskTrackable = self
-
-                        if newVideo.downloadURL.contains(".m3u8") {
-                            downloader.fetchStream(video: newVideo)
-                        } else {
-                            downloader.fetch(video: newVideo)
-                        }
-
-                        let newTask = VideoDownloadTask(video: newVideo, downloader: downloader, task: downloader.downloadSessionTask)
-                        Downloader.shared.downloadTasks.append(newTask)
-                        DispatchQueue.main.async {
-                            self.downloadTableView.reloadData()
-                        }
-                    }
-
-                    self.sizeWindow()
-                case .Failure:
-                    DispatchQueue.main.async {
-                        self.statusField.stringValue = "No videos found!"
-                    }
-                    break
-                }
-            })
+            }
         }
     }
 
@@ -137,7 +121,7 @@ class ViewController: NSViewController {
         openPanel.canChooseDirectories = true
         openPanel.canChooseFiles = false
         openPanel.beginSheetModal(for: self.view.window!) { (button) in
-            if button.rawValue == NSFileHandlingPanelOKButton {
+            if button == NSApplication.ModalResponse.OK {
                 let directoryURL = openPanel.urls[0]
                 Settings.shared.downloadLocation = directoryURL
                 self.setDownloadLocationField()
@@ -157,8 +141,8 @@ class ViewController: NSViewController {
 
     private func sizeWindow() {
         DispatchQueue.main.async {
-            let animate = Downloader.shared.downloadTasks.count > 0
-            let tableHeight = 110 * Downloader.shared.downloadTasks.count
+            let animate = TaskManager.shared.inProgressTasks.count > 0
+            let tableHeight = 110 * TaskManager.shared.inProgressTasks.count
             let newHeight = CGFloat(125 + tableHeight)
 
             if let window = self.view.window {
@@ -175,16 +159,6 @@ class ViewController: NSViewController {
     }
 }
 
-
-// MARK: - TaskTrackable
-// MARK:
-
-extension ViewController: TaskTrackable {
-    func didUpdateTasks() {
-        self.downloadTableView.reloadData()
-    }
-}
-
 // MARK: - NSTableView Delegates
 // MARK:
 
@@ -192,34 +166,16 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         guard let identifier = tableColumn?.identifier else { return nil }
-        guard let video = Downloader.shared.downloadTasks[row].video else { return nil }
+        guard let task = TaskManager.shared.inProgressTasks[safe: row] else { return nil }
 
         if identifier.rawValue == "imageCell" {
-            if let cell = tableView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView {
-                guard let thumbURL = URL(string: video.thumbnailURL) else { return nil }
-                let config = URLSessionConfiguration.default
-                let session = URLSession(configuration: config)
-                let task = session.downloadTask(with: thumbURL, completionHandler: { (location, response, error) in
-                    guard let location = location else { return }
-                    do {
-                        let data = try Data(contentsOf: location, options: [])
-                        if let image = NSImage(data: data) {
-                            DispatchQueue.main.async {
-                                cell.imageView?.image = image
-                            }
-                        }
-                    } catch {
-                        return
-                    }
-                })
-                task.resume()
-
+            if let cell = tableView.makeView(withIdentifier: identifier, owner: self) as? ImageTableCellView {
+                self.setThumbnailImage(for: task, in: cell)
                 return cell
             }
         } else if identifier.rawValue == "progressCell" {
             if let cell = tableView.makeView(withIdentifier: identifier, owner: self) as? ProgressTableCellView {
-                cell.video = video
-                cell.videoTitle.stringValue = video.title
+                cell.task = task
                 return cell
             }
         }
@@ -229,7 +185,7 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return Downloader.shared.downloadTasks.count
+        return TaskManager.shared.inProgressTasks.count
     }
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
@@ -239,10 +195,10 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
     func tableView(_ tableView: NSTableView, rowActionsForRow row: Int, edge: NSTableView.RowActionEdge) -> [NSTableViewRowAction] {
         if edge == .trailing {
             let deleteAction = NSTableViewRowAction(style: .destructive, title: "Delete") { action, index in
-                if let task = Downloader.shared.downloadTasks[safe: index] {
-                    task.task?.cancel()
+                if let task = TaskManager.shared.inProgressTasks[safe: index] {
+                    task.process?.terminate()
 
-                    Downloader.shared.downloadTasks.remove(at: index)
+                    TaskManager.shared.inProgressTasks.remove(at: index)
                 }
                 tableView.reloadData()
                 self.sizeWindow()
@@ -251,6 +207,41 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
         } else {
             return []
         }
+    }
+
+    func setThumbnailImage(for task: InProgressTask, in cell: ImageTableCellView) {
+        guard let thumbURL = task.thumbnailURL else { return }
+        let imageSize = CGSize(width: 95, height: 80)
+        if let image = NSImage(contentsOfFile: thumbURL.path) {
+            let resizedImage = resizeImage(image, size: imageSize)
+            cell.imageView?.image = resizedImage
+        }
+    }
+
+    func resizeImage(_ sourceImage: NSImage, size: CGSize) -> NSImage {
+        let targetFrame = CGRect(origin: CGPoint.zero, size: size);
+        let targetImage = NSImage.init(size: size)
+        let sourceSize = sourceImage.size
+        let ratioH = size.height / sourceSize.height;
+        let ratioW = size.width / sourceSize.width;
+
+        var cropRect = CGRect.zero;
+        if (ratioH >= ratioW) {
+            cropRect.size.width = floor (size.width / ratioH);
+            cropRect.size.height = sourceSize.height;
+        } else {
+            cropRect.size.width = sourceSize.width;
+            cropRect.size.height = floor(size.height / ratioW);
+        }
+
+        cropRect.origin.x = floor( (sourceSize.width - cropRect.size.width)/2 );
+        cropRect.origin.y = floor( (sourceSize.height - cropRect.size.height)/2 );
+        targetImage.lockFocus()
+        sourceImage.draw(in: targetFrame, from: cropRect, operation: .copy, fraction: 1.0, respectFlipped: true, hints: nil )
+
+
+        targetImage.unlockFocus()
+        return targetImage;
     }
 }
 

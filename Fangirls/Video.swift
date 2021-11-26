@@ -21,21 +21,3 @@ extension Video: Equatable {
         return lhs.downloadURL == rhs.downloadURL
     }
 }
-
-extension Video: Downloadable {
-    func downloadDidStart() {}
-
-    func downloadUpdatedProgress(percentComplete: Float) {
-        downloadProgress?.completedUnitCount = Int64(percentComplete)
-    }
-
-    func downloadDidComplete(fileLocation: URL?, error: Error?) {
-        var spotURL = Settings.shared.downloadLocation
-        spotURL.appendPathComponent(filename)
-        do {
-            try FileManager.default.moveItem(at: fileLocation!, to: spotURL)
-        } catch let error as NSError {
-            print("Error: \(error.localizedDescription)")
-        }
-    }
-}
