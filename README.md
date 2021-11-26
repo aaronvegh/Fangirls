@@ -3,7 +3,7 @@
 
 ---
 
-Fangirls is a super-simple front-end to the [https://github.com/yt-dlp/yt-dlp](yt-dlp project). In short, it grabs the source of videos you watch on the web, and downloads them to your computer. Despite the name, yt-dlp supports vastly more services than YouTube — [https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md](you can see a full list). It's also a pretty active project; if there's a site that it doesn't work for, the developers are willing to take requests.
+Fangirls is a super-simple front-end to the [yt-dlp project](https://github.com/yt-dlp/yt-dlp). In short, it grabs the source of videos you watch on the web, and downloads them to your computer. Despite the name, yt-dlp supports vastly more services than YouTube — [you can see a full list](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md). It's also a pretty active project; if there's a site that it doesn't work for, the developers are willing to take requests.
 
 One problem with yt-dlp is that it's a Python app that you have to use from the command line. I love the command line as much as any card-carrying nerd, but I wanted to build a quick Mac app, and this seemed like a good opportunity.
 
